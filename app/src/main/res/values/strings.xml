@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">QuizWars</string>
+    <string name="start_game">START GAME</string>
+    <string name="blue_player">Blue Player:</string>
+    <string name="red_player">Red Player:</string>
+    <string name="author">Created by: Konrad Baczyński \n with Trivia API</string>
 </resources>
