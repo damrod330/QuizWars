@@ -5,7 +5,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Damrod on 11.04.2017.
@@ -19,22 +21,38 @@ public class JsonFormatter {
         {
             QuestionModel questionModel;
             List<QuestionModel> questionsList = new ArrayList<QuestionModel>();
-            String category, type,difficulty, question, correct_answer, incorrect_answers;
+
+            String category, type,difficulty, question, correct_answer;
+
             JSONObject jsonObject;
-            JSONArray jsonArray;
+            JSONArray jsonArray, jsonArrayIncorrectAnswers;
 
             try {
                 jsonObject = new JSONObject(json);
                 jsonArray = jsonObject.getJSONArray("results");
 
+
                 for(int i=0; i<jsonArray.length(); i++) {
-                    JSONObject jsonUser = jsonArray.getJSONObject(i);
-                    category = jsonUser.getString("category");
-                    type = jsonUser.getString("type");
-                    difficulty = jsonUser.getString("difficulty");
-                    question = jsonUser.getString("question");
-                    correct_answer = jsonUser.getString("correct_answer");
-                    incorrect_answers = jsonUser.getString("incorrect_answers");
+                    JSONObject jsonQuestion = jsonArray.getJSONObject(i);
+                    category = jsonQuestion.getString("category");
+                    type = jsonQuestion.getString("type");
+                    difficulty = jsonQuestion.getString("difficulty");
+                    question = jsonQuestion.getString("question");
+                    correct_answer = jsonQuestion.getString("correct_answer");
+
+                    List<String> all_answers = new ArrayList<String>();
+
+                    all_answers.add(correct_answer);
+                    //incorrect_answers = jsonQuestion.getString("incorrect_answers");
+                    jsonArrayIncorrectAnswers = jsonQuestion.getJSONArray("incorrect_answers");
+                    for(int j=0; j<jsonArrayIncorrectAnswers.length(); j++) {
+                        String s1 = jsonArrayIncorrectAnswers.getString(j);
+                        s1 = s1.replace("&#039;", "\'");
+                        s1 = s1.replace("&quot;","\"");
+                        all_answers.add(s1);
+                    }
+                    //randomize answers in list
+                    Collections.shuffle(all_answers);
 
                     //Remove strange signs from json -.-
                     category = category.replace("&#039;", "\'");
@@ -52,11 +70,11 @@ public class JsonFormatter {
                     correct_answer = correct_answer.replace("&#039;", "\'");
                     correct_answer = correct_answer.replace("&quot;","\"");
 
-                    incorrect_answers = incorrect_answers.replace("&#039;", "\'");
-                    incorrect_answers = incorrect_answers.replace("&quot;","\"");
+                    //incorrect_answers = incorrect_answers.replace("&#039;", "\'");
+                    //incorrect_answers = incorrect_answers.replace("&quot;","\"");
                     //Remove strange signs from json -.-
 
-                    questionModel = new QuestionModel(category, type, difficulty, question, correct_answer, incorrect_answers);
+                    questionModel = new QuestionModel(category, type, difficulty, question, correct_answer, all_answers);
                     questionsList.add(questionModel);
                 }
                 return questionsList;

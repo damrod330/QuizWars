@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     @InjectView(R.id.info_text_view)
     TextView textViewInfo;
+
+    @InjectView(R.id.questions_list_view)
+    ListView questionListView;
 
     String redPlayer, bluePlayer;
 
@@ -41,14 +46,13 @@ public class MainActivity extends AppCompatActivity {
         OkHttpHandler okHttpHandler = new OkHttpHandler();
         okHttpHandler.execute();
 
-
     }
 
     private class OkHttpHandler extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            String url = "https://opentdb.com/api.php?amount=10";
+            String url = "https://opentdb.com/api.php?amount=14";
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder().url(url).build();
@@ -77,9 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
                 res += questionList.get(i).getQuestion() + "\n"
                         +questionList.get(i).getCorrect_answer()+"\n"
-                +questionList.get(i).getIncorrect_answers() + "\n"+"\n";
+                +questionList.get(i).getType() + "\n"+"\n";
             }
-            textViewInfo.setText(res);
+            //textViewInfo.setText(res);
+
+            //questionListView.setAdapter(new ArrayAdapter<String>());
+
         }
     }
 }

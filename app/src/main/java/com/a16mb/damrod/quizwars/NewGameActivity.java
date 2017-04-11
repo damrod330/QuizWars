@@ -42,4 +42,6 @@ public class NewGameActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 }
