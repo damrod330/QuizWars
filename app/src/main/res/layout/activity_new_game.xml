@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context="com.a16mb.damrod.quizwars.NewGameActivity">
 
     <ImageView
@@ -17,7 +16,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +49,8 @@
                 android:id="@+id/player_red_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="Damrod" />
 
         </LinearLayout>
 
@@ -67,7 +70,8 @@
                 android:id="@+id/player_blue_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="Kiroshin" />
 
         </LinearLayout>
 
@@ -87,8 +91,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:gravity="right"
         android:layout_margin="20dp"
+        android:gravity="right"
         android:text="@string/author"
         android:textColor="@color/secondary_text" />
 </RelativeLayout>

@@ -4,4 +4,9 @@
     <string name="blue_player">Blue Player:</string>
     <string name="red_player">Red Player:</string>
     <string name="author">Created by: Konrad Baczyński \n with Trivia API</string>
+    <string name="begin_quiz">begin quiz</string>
+    <string name="check_answers">check answers</string>
+    <string name="questions_for">Questions for:</string>
+    <string name="restart_game">restart game</string>
+    <string name="correct_answers">Correct answers:</string>
 </resources>

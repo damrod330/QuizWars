@@ -42,7 +42,7 @@ public class JsonFormatter {
 
                     List<String> all_answers = new ArrayList<String>();
 
-                    all_answers.add(correct_answer);
+
                     //incorrect_answers = jsonQuestion.getString("incorrect_answers");
                     jsonArrayIncorrectAnswers = jsonQuestion.getJSONArray("incorrect_answers");
                     for(int j=0; j<jsonArrayIncorrectAnswers.length(); j++) {
@@ -51,8 +51,6 @@ public class JsonFormatter {
                         s1 = s1.replace("&quot;","\"");
                         all_answers.add(s1);
                     }
-                    //randomize answers in list
-                    Collections.shuffle(all_answers);
 
                     //Remove strange signs from json -.-
                     category = category.replace("&#039;", "\'");
@@ -70,9 +68,9 @@ public class JsonFormatter {
                     correct_answer = correct_answer.replace("&#039;", "\'");
                     correct_answer = correct_answer.replace("&quot;","\"");
 
-                    //incorrect_answers = incorrect_answers.replace("&#039;", "\'");
-                    //incorrect_answers = incorrect_answers.replace("&quot;","\"");
-                    //Remove strange signs from json -.-
+                    //randomize answers in list
+                    all_answers.add(correct_answer);
+                    Collections.shuffle(all_answers);
 
                     questionModel = new QuestionModel(category, type, difficulty, question, correct_answer, all_answers);
                     questionsList.add(questionModel);

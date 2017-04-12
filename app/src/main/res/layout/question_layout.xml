@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="12dp"
+
+    >
+
+    <TextView
+        android:id="@+id/number_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:text="1."
+        android:textColor="@color/secondary_text"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Question QuestionQ uestion Questi onQuestionQue stionQuest ionQuestio nQuestionQuest ionQues tion QuestionQuestionQuestionQuestion"
+            android:textColor="@color/accent"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/answers_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/answer01_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="answer" />
+
+            <RadioButton
+                android:id="@+id/answer02_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="answer" />
+
+            <RadioButton
+                android:id="@+id/answer03_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="answer" />
+
+            <RadioButton
+                android:id="@+id/answer04_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="answer" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+</LinearLayout>

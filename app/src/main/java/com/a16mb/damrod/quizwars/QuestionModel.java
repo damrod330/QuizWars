@@ -1,15 +1,30 @@
 package com.a16mb.damrod.quizwars;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Damrod on 11.04.2017.
  */
 
-public class QuestionModel {
+public class QuestionModel implements Serializable{
 
-    String category, type, difficulty, question, correct_answer;
-    List<String> all_answers;
+    private String category;
+    private String type;
+    private String difficulty;
+    private String question;
+    private String correct_answer;
+    private String selected_answer;
+    private List<String> all_answers;
+
+    public String getSelected_answer() {
+        return selected_answer;
+    }
+
+    public void setSelected_answer(String selected_answer) {
+
+        this.selected_answer = selected_answer;
+    }
 
     public QuestionModel(String category, String type, String difficulty, String question, String correct_answer, List<String> all_answers) {
         this.category = category;
